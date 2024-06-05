@@ -1,17 +1,3 @@
-<template>
-  <div>
-    <div v-if="error">
-      <h1>Something went wrong...</h1>
-      <pre>{{ error }}</pre>
-      <pre>{{ errorInstance }}</pre>
-      <pre>{{ errorInfo }}</pre>
-    </div>
-    <div v-else>
-      <slot></slot>
-    </div>
-  </div>
-</template>
-
 <script>
 export default {
   data() {
@@ -32,3 +18,26 @@ export default {
   }
 }
 </script>
+
+<template>
+  <main>
+    <div v-if="error">
+      <h1>Something went wrong...</h1>
+      <pre>{{ error }}</pre>
+      <pre>{{ errorInstance }}</pre>
+      <pre>{{ errorInfo }}</pre>
+    </div>
+    <div v-else>
+      <slot></slot>
+    </div>
+  </main>
+</template>
+
+<style scoped>
+main {
+  max-width: 960px;
+  width: 100%;
+  margin: 0 auto;
+  /*  text-align: center;*/
+}
+</style>

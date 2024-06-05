@@ -85,7 +85,7 @@ export default {
             <ion-card-subtitle> Main language: {{ repo.language }} </ion-card-subtitle>
           </ion-card-header>
           <ion-card-content>{{ repo.description }}</ion-card-content>
-          <ion-button color="tertiary">
+          <ion-button fill="clear">
             <router-link :to="`/singleRepo/${repo.name}`">View more</router-link>
           </ion-button>
         </ion-card>
@@ -123,20 +123,11 @@ export default {
 </template>
 
 <style scoped>
-*,
-*::before,
-*::after {
-  color: #000;
-  padding: 0;
-  box-sizing: border-box;
-  margin: 0;
-}
-
 /*RepoCards styling*/
 main {
   max-width: 960px;
   width: 100%;
-  margin: 0 auto;
+  margin: 8rem auto;
 }
 
 ion-card-header,
@@ -150,6 +141,10 @@ ion-card {
   color: #000;
   padding: 5px;
   margin: 10px;
+}
+
+.repoCardsContainer ion-button:hover {
+  box-shadow: 2px 4px 8px 4px;
 }
 
 /*  Pagination styling*/
@@ -169,6 +164,28 @@ ul.paginationButtonsContainer {
 ion-button {
   --border-color: #f070a1;
   --color: #000;
+}
+
+section.reposPagination ion-button:hover {
+  background-color: #f070a1;
+  box-shadow: 2px 4px 8px;
+  border-radius: 40%;
+}
+
+a {
+  text-decoration: none;
   font-size: 16px;
+  color: #000;
+}
+
+a:hover,
+a:active {
+  color: #f070a1;
+}
+
+@media screen and (max-width: 768px) {
+  main {
+    margin: 2rem auto;
+  }
 }
 </style>

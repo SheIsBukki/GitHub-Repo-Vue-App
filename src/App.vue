@@ -1,10 +1,3 @@
-<template>
-  <div>
-    <navigation-bar />
-    <router-view></router-view>
-  </div>
-</template>
-
 <script>
 import NavigationBar from './components/NavigationBar.vue'
 
@@ -15,10 +8,18 @@ export default {
 }
 </script>
 
+<template>
+  <div>
+    <navigation-bar />
+    <router-view></router-view>
+  </div>
+</template>
+
 <style>
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   font-synthesis: none;
+  font-size: 20px;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -28,10 +29,11 @@ export default {
 *::before,
 *::after {
   background-color: #16ffbd;
+  /*  background-color: #dfdf00;*/
   color: #000;
-  /*  padding: 0;*/
-  /*  box-sizing: border-box;*/
-  /*  margin: 0;*/
+  padding: 0;
+  box-sizing: border-box;
+  margin: 0;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -51,27 +53,5 @@ body::-webkit-scrollbar {
 body {
   -ms-overflow-style: none;
   scrollbar-width: none;
-  /*  font-size: 2rem;*/
 }
-
-/*@media screen and (max-width: 768px) {
-  *,
-  *::before,
-  *::after {
-    font-size: 18px;
-  }
-}*/
-/*a {
-  display: inline-block;
-  background-color: #000;
-  border: solid 1px black;
-  color: #fff;
-  padding: 5px;
-  margin: 10px;
-  text-decoration: none;
-}*/
-/*a:hover,
-a.router-link-active {
-  background-color: rgb(110, 79, 13);
-}*/
 </style>

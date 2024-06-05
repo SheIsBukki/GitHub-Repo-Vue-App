@@ -10,7 +10,7 @@ This is a solution to the GitHub Repository assignment project given by AltSchoo
   - [Links](#links)
 - [My process](#my-process)
   - [Built with](#built-with)
-  - [What I learned](#what-i-learned)
+  - [What I learned](#what-I-learned)
   - [Continued development](#continued-development)
   - [Useful resources](#useful-resources)
 - [Author](#author)
@@ -43,17 +43,17 @@ _Implement a Web App using GitHub API to fetch your GitHub repositories portfoli
 
 ### What I learned
 
-- How to fetch data from an external source using `fetch()`, `Axios`, and `Async/Await`
+- How to fetch data from an external source using `fetch()`, `Axios`, and `Async/Await`. I decided not to use Axios because I didn't want to install the dependency, but I now know how to use it to fetch data from API
 - Adding routes to react apps using Vue Router
 - Implementing SEO using within the Routes declaration
 - Depolying Vue 3 Routed sites to Vercel
-- Implementing custom pagination
-- Creating page to test ErrorBoundary and a NotFound page
+- How to implement custom pagination
+- How to create ErrorBoundary and a NotFound pages in Vue
 - Using the Vue lifecycle hooks
 
 ### Continued development
 
-This was my first time working with some of the concepts I used in building the project. I plan to learn more about APIs, Composition API. I wrote both Options API version and Composition API version, but commented out the Composition API version because at the time of writing this README I haven't written the Composition API version of the RepoCards component.
+This was my first time working with some of the concepts I used in building the project. I plan to learn more about APIs, Vue Composition API, and the concepts I used in this project. I wrote both Options API version and Composition API version, but commented out the Composition API code version because at the time of writing this README I haven't written the Composition API version of the RepoCards component.
 For UI framework, I used the Ionic Vue framework and I like its simiplicity and intuitiveness. However, if I will still use the Ionic framework in the future, I will have to learn in-depth about it because following the framework's documentation and routing through ionic vue router caused my first build to be rejected. So I reverted to using vue router and everything was resolved.
 
 ### Useful resources

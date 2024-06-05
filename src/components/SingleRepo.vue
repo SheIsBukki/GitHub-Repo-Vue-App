@@ -1,32 +1,3 @@
-<!-- <script setup>
-import { ref } from 'vue'
-import { useRoute } from 'vue-router'
-
-const repo = ref(null)
-const route = useRoute()
-
-const fetchIndividualRepo = function () {
-  fetch(`https://api.github.com/repos/sheisbukki/${route.params.name}`)
-    .then((response) => response.json())
-    .then((data) => {
-      repo.value = data
-    })
-    .catch((error) => {
-      console.error(error)
-    })
-}
-
-fetchIndividualRepo()
-
-const regularDate = (dateValue) => {
-  return new Date(dateValue).toLocaleDateString('en-uk', {
-    year: 'numeric',
-    month: 'short',
-    day: 'numeric'
-  })
-}
-</script> -->
-
 <script>
 import {
   IonButton,
@@ -70,6 +41,7 @@ export default {
           console.error(error)
         })
     },
+    ////THIS WORKS, JUST DECIDED TO USE THE ONE ABOVE
     // async fetchSingleRepo() {
     //   try {
     //     const response = await fetch(
@@ -100,6 +72,7 @@ export default {
     <main>
       <p v-if="!repo">Loading...</p>
       <div v-else>
+        <h1>Repository</h1>
         <section>
           <ion-card color="dark">
             <ion-card-header>
@@ -130,13 +103,15 @@ export default {
               </ion-list>
             </ion-card-content>
 
-            <ion-button color="tertiary">
-              <a :href="repo.html_url">View source code</a>
-            </ion-button>
-            <em v-if="!repo.homepage">No live site</em>
-            <ion-button color="tertiary" v-else>
-              <a :href="repo.homepage">Visit live site</a>
-            </ion-button>
+            <div class="cardFooter">
+              <ion-button fill="clear">
+                <a :href="repo.html_url">View source code</a>
+              </ion-button>
+              <em v-if="!repo.homepage">No live site</em>
+              <ion-button v-else fill="clear">
+                <a :href="repo.homepage">Visit live site</a>
+              </ion-button>
+            </div>
           </ion-card>
         </section>
         <footer :style="{ 'text-align': 'center' }">
@@ -150,55 +125,66 @@ export default {
 </template>
 
 <style scoped>
-*,
-*::before,
-*::after {
-  color: #000;
-  padding: 0;
-  box-sizing: border-box;
-  margin: 0;
+main {
+  margin: 8rem auto;
+}
+
+h1 {
+  text-align: center;
+  color: #f070a1;
+  letter-spacing: 16px;
+  font-size: 32px;
+  /*  line-height: 40px;*/
 }
 
 section {
-  padding: 5px;
+  padding: 8px;
   max-width: 768px;
   width: 100%;
-  margin: 0 auto;
+  margin: 0 auto 16px;
 }
+
 ion-card {
   border: 2px solid #f070a1;
+  padding: 16px;
 }
 
 ion-card-header,
 ion-card-content,
 ion-label,
 ion-item > em {
-  padding: 10px;
+  padding: 8px;
 }
 
 ion-button {
   --border-color: #f070a1;
   --color: #000;
-  font-size: 16px;
   list-style-type: none;
+  padding-inline: 8px;
+}
+
+div.cardFooter {
+  text-align: center;
 }
 
 a {
   text-decoration: none;
-  font-size: 16px;
+  /*  font-size: 16px;*/
   color: #000;
 }
-/*a {
-  display: inline-block;
-  background-color: #000;
-  border: solid 1px black;
-  color: #fff;
-  padding: 5px;
-  margin: 10px;
-  text-decoration: none;
-}*/
-/*a:hover,
-a.router-link-active {
-  background-color: rgb(110, 79, 13);
-}*/
+
+a:hover,
+a:active {
+  color: #f070a1;
+}
+
+@media screen and (max-width: 768px) {
+  main {
+    margin: 2rem auto;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+}
 </style>

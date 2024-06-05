@@ -1,9 +1,3 @@
-<template>
-  <errorBoundary>
-    <repo-cards />
-  </errorBoundary>
-</template>
-
 <script>
 import RepoCards from './RepoCards.vue'
 import ErrorBoundary from './ErrorBoundary.vue'
@@ -15,3 +9,9 @@ export default {
   }
 }
 </script>
+
+<template>
+  <errorBoundary>
+    <repo-cards />
+  </errorBoundary>
+</template>

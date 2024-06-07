@@ -29,7 +29,6 @@ export default {
 *::before,
 *::after {
   background-color: #16ffbd;
-  /*  background-color: #dfdf00;*/
   color: #000;
   padding: 0;
   box-sizing: border-box;
@@ -51,6 +50,7 @@ body::-webkit-scrollbar {
 }*/
 
 body {
+  font-size: calc(0.75em + 1vmin);
   -ms-overflow-style: none;
   scrollbar-width: none;
 }

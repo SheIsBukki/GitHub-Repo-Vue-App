@@ -149,6 +149,13 @@ ion-card {
   padding: 16px;
 }
 
+ion-list,
+ion-item {
+  --background: #f070a1;
+  background-color: #f070a1;
+  padding-block: 2px;
+}
+
 ion-card-header,
 ion-card-content,
 ion-label,

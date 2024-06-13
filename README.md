@@ -44,11 +44,11 @@ _Implement a Web App using GitHub API to fetch your GitHub repositories portfoli
 ### What I learned
 
 - How to fetch data from an external source using `fetch()`, `Axios`, and `Async/Await`. I decided not to use Axios because I didn't want to install the dependency, but I now know how to use it to fetch data from API
-- Adding routes to react apps using Vue Router
+- Adding routes to apps using Vue Router
 - Implementing SEO using within the Routes declaration
 - Depolying Vue 3 Routed sites to Vercel
 - How to implement custom pagination
-- How to create ErrorBoundary and a NotFound pages in Vue
+- How to create ErrorBoundary and NotFound pages in Vue
 - Using the Vue lifecycle hooks
 
 ### Continued development

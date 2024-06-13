@@ -1,4 +1,12 @@
-<script>
+<!-- COMPOSITION API VERSION -->
+<script setup>
+import NavigationBar from './components/NavigationBar.vue'
+</script>
+
+<!--  -->
+<!-- OPTIONS API VERSION -->
+
+<!-- <script>
 import NavigationBar from './components/NavigationBar.vue'
 
 export default {
@@ -6,12 +14,14 @@ export default {
     'navigation-bar': NavigationBar
   }
 }
-</script>
+</script> -->
 
 <template>
   <div>
-    <navigation-bar />
-    <router-view></router-view>
+    <!-- <navigation-bar /> -->
+    <NavigationBar />
+    <routerView></routerView>
+    <!-- <router-view></router-view> -->
   </div>
 </template>
 

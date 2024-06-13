@@ -1,4 +1,81 @@
-<script>
+<!-- COMPOSITION API VERSION -->
+<script setup>
+import { ref, onMounted, onBeforeUnmount, computed } from 'vue'
+import {
+  IonButton,
+  IonCard,
+  IonCardContent,
+  IonCardHeader,
+  IonCardSubtitle,
+  IonCardTitle
+} from '@ionic/vue'
+
+const repos = ref([])
+const currentPage = ref(1)
+const reposPerPage = ref(2)
+const windowWidth = ref(window.innerWidth)
+const windowHeight = ref(window.innerHeight)
+const displayBlock = ref({
+  display: 'block'
+})
+const displayGrid = ref({
+  display: 'grid',
+  'grid-template-columns': '1fr 1fr'
+})
+
+const fetchRepos = async function () {
+  try {
+    const response = await fetch('https://api.github.com/users/sheisbukki/repos')
+    repos.value = await response.json()
+  } catch (error) {
+    console.log('Error fetching repositories:', error)
+    throw error
+  }
+}
+
+const previousPageButton = () => {
+  if (currentPage.value !== 1) currentPage.value--
+}
+
+const nextPageButton = () => {
+  if (currentPage.value !== Math.ceil(repos.value.length / reposPerPage.value)) currentPage.value++
+}
+
+const paginationNumbers = (pageNumber) => {
+  currentPage.value = pageNumber
+}
+
+const handleWindowSizeChange = () => {
+  windowWidth.value = window.innerWidth
+  windowHeight.value = window.innerHeight
+}
+
+onMounted(() => {
+  fetchRepos()
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener('resize', handleWindowSizeChange)
+})
+
+const paginatedRepos = computed(() => {
+  const indexOfLastRepo = currentPage.value * reposPerPage.value
+  const indexOfFirstRepo = indexOfLastRepo - reposPerPage.value
+  return repos.value.slice(indexOfFirstRepo, indexOfLastRepo)
+})
+
+const pageNumbers = computed(() => {
+  const pageNumbers = []
+  for (let i = 1; i <= Math.ceil(repos.value.length / reposPerPage.value); i++) {
+    pageNumbers.push(i)
+  }
+  return pageNumbers
+})
+</script>
+
+<!--  -->
+<!-- OPTIONS API VERSION -->
+<!-- <script>
 import {
   IonButton,
   IonCard,
@@ -54,7 +131,7 @@ export default {
     this.fetchRepos()
     window.addEventListener('resize', this.handleWindowSizeChange)
   },
-  beforeDestroy() {
+  beforeUnmount() {
     window.removeEventListener('resize', this.handleWindowSizeChange)
   },
   computed: {
@@ -72,7 +149,7 @@ export default {
     }
   }
 }
-</script>
+</script> -->
 
 <template>
   <main>

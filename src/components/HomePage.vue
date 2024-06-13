@@ -1,4 +1,12 @@
-<script>
+<!-- COMPOSITION API VERSION -->
+<script setup>
+import RepoCards from './RepoCards.vue'
+import ErrorBoundary from './ErrorBoundary.vue'
+</script>
+
+<!--  -->
+<!-- OPTIONS API VERSION -->
+<!-- <script>
 import RepoCards from './RepoCards.vue'
 import ErrorBoundary from './ErrorBoundary.vue'
 
@@ -8,7 +16,7 @@ export default {
     errorBoundary: ErrorBoundary
   }
 }
-</script>
+</script> -->
 
 <template>
   <errorBoundary>

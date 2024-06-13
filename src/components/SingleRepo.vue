@@ -1,4 +1,51 @@
-<script>
+<!-- COMPOSITION API VERSION -->
+<script setup>
+import { ref, onMounted } from 'vue'
+import { useRoute } from 'vue-router'
+import {
+  IonButton,
+  IonCard,
+  IonCardContent,
+  IonCardHeader,
+  IonCardSubtitle,
+  IonCardTitle,
+  IonLabel,
+  IonItem,
+  IonList
+} from '@ionic/vue'
+import ErrorBoundary from './ErrorBoundary.vue'
+
+const repo = ref(null)
+const route = useRoute()
+
+const fetchIndividualRepo = function () {
+  fetch(`https://api.github.com/repos/sheisbukki/${route.params.name}`)
+    .then((response) => response.json())
+    .then((data) => {
+      repo.value = data
+    })
+    .catch((error) => {
+      console.error(error)
+    })
+}
+
+onMounted(() => {
+  fetchIndividualRepo()
+})
+
+const regularDate = (dateValue) => {
+  return new Date(dateValue).toLocaleDateString('en-uk', {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric'
+  })
+}
+</script>
+
+<!--  -->
+<!-- OPTIONS API VERSION -->
+
+<!-- <script>
 import {
   IonButton,
   IonCard,
@@ -65,10 +112,10 @@ export default {
     this.fetchSingleRepo()
   }
 }
-</script>
+</script> -->
 
 <template>
-  <errorBoundary>
+  <ErrorBoundary>
     <main>
       <p v-if="!repo">Loading...</p>
       <div v-else>
@@ -121,7 +168,7 @@ export default {
         </footer>
       </div>
     </main>
-  </errorBoundary>
+  </ErrorBoundary>
 </template>
 
 <style scoped>

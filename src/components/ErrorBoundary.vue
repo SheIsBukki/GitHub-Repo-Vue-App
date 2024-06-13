@@ -1,4 +1,27 @@
-<script>
+<!-- COMPOSITION API VERSION -->
+
+<script setup>
+import { ref, onErrorCaptured } from 'vue'
+
+const error = ref(null)
+const errorInfo = ref('')
+const errorInstance = ref(null)
+
+onErrorCaptured((error, instance, info) => {
+  error.value = error
+  errorInfo.value = info
+  errorInstance.value = instance
+  console.log('error: ', error)
+  console.log('component Instance: ', instance)
+  console.log('errorSrcType: ', info)
+  return false
+})
+</script>
+
+<!--  -->
+<!-- OPTIONS API VERSION -->
+
+<!-- <script>
 export default {
   data() {
     return {
@@ -17,7 +40,7 @@ export default {
     return false
   }
 }
-</script>
+</script> -->
 
 <template>
   <main>

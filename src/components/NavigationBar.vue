@@ -1,4 +1,37 @@
-<script>
+<!-- COMPOSITION API VERSION -->
+
+<script setup>
+import { ref, onMounted, onBeforeUnmount } from 'vue'
+import { IonIcon } from '@ionic/vue'
+
+const windowWidth = ref(window.innerWidth)
+const windowHeight = ref(window.innerHeight)
+const isOpen = ref(false)
+const ionIconStyle = ref({
+  fontSize: '64px',
+  color: '#000',
+  '--ionicon-stroke-width': '16px'
+})
+
+const handleWindowSizeChange = () => {
+  windowWidth.value = window.innerWidth
+  windowHeight.value = window.innerHeight
+}
+
+onMounted(() => {
+  window.addEventListener('resize', handleWindowSizeChange)
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener('resize', handleWindowSizeChange)
+})
+</script>
+
+<!--  -->
+
+<!-- OPTIONS API VERSION -->
+
+<!-- <script>
 import { IonIcon } from '@ionic/vue'
 
 export default {
@@ -20,7 +53,7 @@ export default {
   mounted() {
     window.addEventListener('resize', this.handleWindowSizeChange)
   },
-  beforeDestroy() {
+  beforeUnmount() {
     window.removeEventListener('resize', this.handleWindowSizeChange)
   },
   methods: {
@@ -30,7 +63,7 @@ export default {
     }
   }
 }
-</script>
+</script> -->
 
 <template>
   <div class="navBarContainer">

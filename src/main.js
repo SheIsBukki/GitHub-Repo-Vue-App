@@ -27,6 +27,8 @@ app.config.errorHandler = (error, compInstance, info) => {
   console.error('Error Info:', info)
 }
 
-router.isReady().then(() => {
-  app.mount('#app')
-})
+app.mount('#app')
+
+// router.isReady().then(() => {
+//   app.mount('#app')
+// })

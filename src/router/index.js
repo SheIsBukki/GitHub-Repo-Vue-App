@@ -8,7 +8,7 @@ import SingleRepo from '../components/SingleRepo.vue'
 
 const router = createRouter({
   history: createWebHistory(),
-  // base: process.env.BASE_URL, // This returns process is not defined
+  // base: process.env.BASE_URL, // I added this inside the createWebHistory parantheses but it returns process is not defined
   routes: [
     {
       path: '/',

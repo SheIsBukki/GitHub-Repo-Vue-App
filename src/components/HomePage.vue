@@ -19,7 +19,7 @@ export default {
 </script> -->
 
 <template>
-  <errorBoundary>
+  <ErrorBoundary>
     <repo-cards />
-  </errorBoundary>
+  </ErrorBoundary>
 </template>

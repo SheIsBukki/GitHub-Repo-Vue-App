@@ -1,4 +1,5 @@
-import { createRouter, createWebHistory } from 'vue-router'
+// import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHistory } from '@ionic/vue-router'
 
 import HomePage from '../components/HomePage.vue'
 import ErrorBoundary from '../components/ErrorBoundary.vue'
@@ -7,8 +8,8 @@ import RepoCards from '../components/RepoCards.vue'
 import SingleRepo from '../components/SingleRepo.vue'
 
 const router = createRouter({
-  history: createWebHistory(),
-  // base: process.env.BASE_URL, // I added this inside the createWebHistory parantheses but it returns process is not defined
+  history: createWebHistory(process.env.BASE_URL),
+  // base: process.env.BASE_URL, // I added this inside the createWebHistory parantheses but it returns process is not defined. I tried it again today and it works, so 🤷🏽
   routes: [
     {
       path: '/',

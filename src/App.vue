@@ -1,25 +1,25 @@
 <!-- COMPOSITION API VERSION -->
 <script setup>
-import NavigationBar from './components/NavigationBar.vue'
+import NavBar from './components/NavBar.vue'
 </script>
 
 <!--  -->
 <!-- OPTIONS API VERSION -->
 
 <!-- <script>
-import NavigationBar from './components/NavigationBar.vue'
+import NavBar from './components/NavBar.vue'
 
 export default {
   components: {
-    'navigation-bar': NavigationBar
+    'nav-bar': NavBar
   }
 }
 </script> -->
 
 <template>
   <div>
-    <!-- <navigation-bar /> -->
-    <NavigationBar />
+    <!-- <nav-bar /> -->
+    <NavBar />
     <routerView></routerView>
     <!-- <router-view></router-view> -->
   </div>

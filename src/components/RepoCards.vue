@@ -172,7 +172,7 @@ export default {
         <ul class="paginationButtonsContainer">
           <ion-button
             class="paginationButton"
-            araia-label="Previous page"
+            aria-label="Previous page"
             fill="outline"
             shape="round"
             @click="previousPageButton"

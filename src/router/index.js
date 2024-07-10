@@ -8,8 +8,9 @@ import RepoCards from '../components/RepoCards.vue'
 import SingleRepo from '../components/SingleRepo.vue'
 
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
-  // base: process.env.BASE_URL, // I added this inside the createWebHistory parantheses but it returns process is not defined. I tried it again today and it works, so 🤷🏽
+  history: createWebHistory(import.meta.env.BASE_URL),
+  // base: process.env.BASE_URL, // I added this inside the createWebHistory parentheses but it returns process is not defined. I tried it again today and it works, so 🤷🏽
+  // Decided to use import.meta.env.BASE_URL cos process.env.BASE_URL is not reliable
   routes: [
     {
       path: '/',
